@@ -4,4 +4,10 @@ This project aims to design and build a mechanised chess engine, allowing users 
 
 ## Building
 To build this project, run 
-`make`
+```
+cmake .
+make
+
+./chess
+
+```
