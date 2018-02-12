@@ -2,10 +2,17 @@
 Computer chess engines have become very advanced and are great for learning how to play or improving your skills. However, playing on a computer is just not the same as seeing the physical pieces move accross the board!
 This project aims to design and build a mechanised chess engine, allowing users to play against the StockFish chess engine on a physical board. A mechanical arm will use electromagnets to move the computer's pieces accross the board, mimicking a real chess expert.
 
-# Required Hardware
+## Table of Contents
+[Getting Started](#getting_started)
+  * [Required Hardware](#required_hardware)
+  * [Building Software](#building_software)
+
+# Getting Started <a name="getting_started"></a>
+
+## Required Hardware <a name="required_hardware"></a>
 2x Stepper Motors
 
-## Building Software
+## Building Software <a name="building_software"></a>
 To build this project's software: first clone the repository then run
 
 ```
