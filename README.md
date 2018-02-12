@@ -6,6 +6,9 @@ This project aims to design and build a mechanised chess engine, allowing users 
 
 ![Layers of the system](Docs/path7416.png)
 
+#Reasons why?
+Playing games on a computer screen can be great - but it takes away from the game. Ghost Chess allows users to detach from their everyday computer use to really invest in the game itself, providing a more engaging gaming experience. Variable difficulty levels allow users to improve their chess skills. Not to mention that it is really cool!
+
 ## Table of Contents
 [Getting Started](#getting_started)
   * [Required Hardware](#required_hardware)
@@ -15,6 +18,10 @@ This project aims to design and build a mechanised chess engine, allowing users 
 
 ## Required Hardware <a name="required_hardware"></a>
 2x Stepper Motors
+Electromagnet and set of magnets
+Sensor matrix (hall effect sensors or read switch)
+Chess board and pieces
+
 
 ## Building Software <a name="building_software"></a>
 To build this project's software: first clone the repository then run
