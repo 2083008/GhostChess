@@ -6,7 +6,7 @@ This project aims to design and build a mechanised chess engine, allowing users 
 
 ![Layers of the system](Docs/path7416.png)
 
-#Reasons why?
+# Reasons why?
 Playing games on a computer screen can be great - but it takes away from the game. Ghost Chess allows users to detach from their everyday computer use to really invest in the game itself, providing a more engaging gaming experience. Variable difficulty levels allow users to improve their chess skills. Not to mention that it is really cool!
 
 ## Table of Contents
