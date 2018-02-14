@@ -13,14 +13,15 @@ Playing games on a computer screen can be great - but it takes away from the gam
 [Getting Started](#getting_started)
   * [Required Hardware](#required_hardware)
   * [Building Software](#building_software)
+  * [System Specification](#system_specification)
 
 # Getting Started <a name="getting_started"></a>
 
 ## Required Hardware <a name="required_hardware"></a>
-2x Stepper Motors
-Electromagnet and set of magnets
-Sensor matrix (hall effect sensors or read switch)
-Chess board and pieces
+* 2x Stepper Motors
+* Electromagnet and set of magnets
+* Sensor matrix (hall effect sensors or read switch)
+* Chess board and pieces
 
 
 ## Building Software <a name="building_software"></a>
@@ -34,7 +35,7 @@ make
 
 ```
 
-## Assessment Criteria
+## System Specification <a name="system_specification"></a>
 
 Responsiveness of the system. How long the system will take to move a piece.
 Latency permitted for the piece -> dependant on where the piece has to move (
@@ -55,10 +56,11 @@ QT GUI permitted refresh rate and latency introduced (may not be so much of an i
 Structure software in classes, associated unit tests
 
 ### Team Roles
-Have we decided on these?
-
-Time allocation? Gantt chart perhaps -> soft-hard-ware and debugging and parallel efforts
-Release strategy -> git tagged branches at various points in development
+Alex Angelov - Head of Mechatronics
+Tim Ness - Software
+Alex Smith - Software
 
 # Progress Success Evaluation
+Issue tracking and Project Tracking through github's associated tools.
+
 How does the project acheive the goals that are set out above?
