@@ -4,7 +4,7 @@
 #include <string>
 
 class Board {
-    //0 0 is white rook
+    //0 0 is white rook 
     char board[8][8] = {
         {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
         {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
