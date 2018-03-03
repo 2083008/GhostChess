@@ -1,4 +1,6 @@
 #include <iostream>
+#include <list>
+#include <string>
 using namespace std;
 #include "board.hpp"
 #include "chess_piece.hpp"
@@ -35,8 +37,11 @@ int main(void) {
   TT.resize(Options["Hash"]);
   Threads.set(Options["Threads"]);
   Search::clear(); // After threads are up
-
-  //UCI::loop(argc, argv);
+  
+  char * argss[] = {" ", "position", "startpos", "moves", "e2e4"};
+  UCI::loop(5,argss);
+  char * argsb[] = {" ", "go"};
+  UCI::loop(2, argsb);
 
   Threads.set(0);
   
