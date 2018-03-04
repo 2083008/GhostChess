@@ -43,3 +43,37 @@ void Board::print_board()
     }
 
 }
+
+std::string Board::board_to_FEN()
+{
+
+    int blank_count = 0; // count how many blank tiles for each row
+    bool counting_blanks = false;
+
+    for(int i=0;i<8;i++) {
+        counting_blanks = false;
+        for(int j=0;j<8;j++) {
+            if (board[i][j] == ' '){
+                blank_count++;
+                counting_blanks=true;
+            } else { // there is a piece
+                if(blank_count>=1 && counting_blanks){
+                    std::cout << blank_count;
+                    counting_blanks = false;
+                    
+                }
+                blank_count = 0;
+                std::cout << board[i][j];
+            }
+
+            
+            
+        }
+        if(blank_count>0){
+            std::cout << blank_count;
+            blank_count = 0;
+        }
+        std::cout << "/";
+    }
+    return "hellow\n";
+}

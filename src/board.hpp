@@ -33,6 +33,8 @@ class Board {
         // print board layout to stdout
         void print_board();
 
+        std::string board_to_FEN();
+
 };
 
 
