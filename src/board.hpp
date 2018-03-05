@@ -2,6 +2,7 @@
 #define Board_H
 
 #include <string>
+#include "chess_piece.hpp"
 
 class Board {
     //0 0 is white rook 
@@ -33,7 +34,7 @@ class Board {
         // print board layout to stdout
         void print_board();
 
-        std::string board_to_FEN();
+        std::string board_to_FEN(colour_ active_colour);
 
 };
 

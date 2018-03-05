@@ -44,11 +44,12 @@ void Board::print_board()
 
 }
 
-std::string Board::board_to_FEN()
+std::string Board::board_to_FEN(colour_ active_colour)
 {
 
     int blank_count = 0; // count how many blank tiles for each row
     bool counting_blanks = false;
+    std::string FEN_board;
 
     for(int i=0;i<8;i++) {
         counting_blanks = false;
@@ -57,23 +58,30 @@ std::string Board::board_to_FEN()
                 blank_count++;
                 counting_blanks=true;
             } else { // there is a piece
+
                 if(blank_count>=1 && counting_blanks){
-                    std::cout << blank_count;
+                    FEN_board += std::to_string(blank_count);
                     counting_blanks = false;
                     
                 }
                 blank_count = 0;
-                std::cout << board[i][j];
-            }
+                FEN_board +=  board[i][j];
 
-            
+            }
             
         }
         if(blank_count>0){
-            std::cout << blank_count;
+            FEN_board += std::to_string(blank_count);
             blank_count = 0;
         }
-        std::cout << "/";
+        FEN_board += "/";
     }
-    return "hellow\n";
+
+    // set active colour
+    if (active_colour == WHITE_){
+        FEN_board += " w";
+    } else {
+        FEN_board += " b";
+    }
+    return FEN_board;
 }
