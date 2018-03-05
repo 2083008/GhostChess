@@ -1,9 +1,9 @@
 #ifndef CHESS_PIECE_H
 #define CHESS_PIECE_H
 
-enum colour {
-    WHITE,
-    BLACK
+enum colour_ {
+    WHITE_,
+    BLACK_
 };
 
 struct position
@@ -15,8 +15,8 @@ struct position
 class ChessPiece
 {
 public:
-    colour piece_colour;
-    ChessPiece(colour piece_colour);
+    colour_ piece_colour;
+    ChessPiece(colour_ piece_colour);
     // returns 1 if valid and 0 if invalid
     virtual int valid_move(position start_position, position end_position) =0;
 

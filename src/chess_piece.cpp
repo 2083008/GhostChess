@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 
-ChessPiece :: ChessPiece(colour col)
+ChessPiece :: ChessPiece(colour_ col)
 {
     piece_colour = col;
 };
@@ -31,32 +31,27 @@ int King::valid_move(position start_position, position end_position)
 
 int Queen::valid_move(position start_position, position end_position)
 {
-   if(abs(start_position.row - end_position.row) == abs(start_position.column - end_position.column)) {
+    // if moving diagonally OR vertically
+    if(abs(start_position.row - end_position.row) == abs(start_position.column - end_position.column)) {
         return 0;
+    } else {
+        return (!(abs(start_position.row - end_position.row)==0) != !(abs(start_position.column - end_position.column)==0));
     }
-
-    return 1;
 }
 
 
 int Bishop::valid_move(position start_position, position end_position)
 {
     //if abs(start_position.row )
-    if(abs(start_position.row - end_position.row) == abs(start_position.column - end_position.column)) {
-        return 0;
-    }
-    return 1;
+    return (abs(start_position.row - end_position.row) == abs(start_position.column - end_position.column));
+
 }
 
 
 int Rook::valid_move(position start_position, position end_position)
 {
     // XOR left or right movement of piece
-    if(!(abs(start_position.row - end_position.row)==0) != !(abs(start_position.column - end_position.column)==0)) {
-        return 0;
-    }
-    
-    return 1;
+    return (!(abs(start_position.row - end_position.row)==0) != !(abs(start_position.column - end_position.column)==0));
 }
 
 

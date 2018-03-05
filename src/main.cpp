@@ -37,25 +37,28 @@ int main(void) {
   TT.resize(Options["Hash"]);
   Threads.set(Options["Threads"]);
   Search::clear(); // After threads are up
-  
-  char * argss[] = {" ", "position", "startpos", "moves", "e2e4"};
-  UCI::loop(5,argss);
-  char * argsb[] = {" ", "go"};
-  UCI::loop(2, argsb);
+
+  char * argsa[] = {" ", "ucinewgame"};
+  UCI::loop(2, argsa);
+  char * argsb[] = {" ", "position", "startpos", "moves", "e2e4"};
+  UCI::loop(5,argsb);
+  char * argsc[] = {" ", "go"};
+  UCI::loop(2, argsc);
 
   Threads.set(0);
   
   cout << "GhostChess" << endl;
     Board test;
+    cout<< test.board_to_FEN(WHITE_) << endl;
 
-    // std::stringstream stream;    
-    // std::system("./src/Stockfish/stockfish");
-
+    // std::stringstream stream;
     //test.move_piece(1,0, 2,0);
-    test.print_board();
+
+    //test.print_board();
 
     test.move_piece(0,0, 2,1);
-    test.print_board();
+    //test.print_board();
+    cout<< test.board_to_FEN(BLACK_) << endl;
 
     Rook rook1 = Rook(WHITE_);
     cout << rook1.valid_move(position{7,3},position{1,3}) << endl;
