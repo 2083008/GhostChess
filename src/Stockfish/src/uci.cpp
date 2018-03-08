@@ -73,6 +73,7 @@ namespace {
     while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
     {
         states->emplace_back();
+        cout << "PARSE MOVE LIST ->" << token << endl;
         pos.do_move(m, states->back());
     }
   }
@@ -113,8 +114,9 @@ namespace {
     bool ponderMode = false;
 
     limits.startTime = now(); // As early as possible!
-
+    // cout << "TOKEN IN GO > "<<token << endl;
     while (is >> token)
+       
         if (token == "searchmoves")
             while (is >> token)
                 limits.searchmoves.push_back(UCI::to_move(pos, token));
@@ -197,16 +199,23 @@ void UCI::loop(int argc, char* argv[]) {
 
   for (int i = 1; i < argc; ++i)
       cmd += std::string(argv[i]) + " ";
-
+  cout << "COMMAND "<<cmd << endl;
+  int j =0;
+  char* cmds_arr[] = {"uci","position startpos moves e2e4 d7d5", "readyok","go depth 10"};
   do {
-      if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
-          cmd = "quit";
+      //if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
+      //    cmd = "quit";
 
-      istringstream is(cmd);
-
+     // istringstream is(cmd);
+        istringstream is(cmds_arr[j]);
+        cout << "CMDS ARR => " << cmds_arr[j] << endl;
+        j++;
       token.clear(); // Avoid a stale if getline() returns empty or blank line
       is >> skipws >> token;
 
+      cout << "TOKEN" << token << endl;
+      
+    
       // The GUI sends 'ponderhit' to tell us the user has played the expected move.
       // So 'ponderhit' will be sent if we were told to ponder on the same move the
       // user has played. We should continue searching but switch from pondering to
@@ -238,8 +247,8 @@ void UCI::loop(int argc, char* argv[]) {
       else if (token == "eval")  sync_cout << Eval::trace(pos) << sync_endl;
       else
           sync_cout << "Unknown command: " << cmd << sync_endl;
-
-  } while (token != "quit" && argc == 1); // Command line args are one-shot
+    
+  } while (token != "quit" && j<4 );//&& argc == 1); // Command line args are one-shot
 }
 
 
