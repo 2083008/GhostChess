@@ -21,7 +21,7 @@ using namespace std;
 
 char board[8][8];
 
-char command[200];
+
 
 namespace PSQT {
   void init();
@@ -47,17 +47,17 @@ int main(void) {
   
   cout << "GhostChess V_0.1" << endl;
   Board test;
-
-  //char * argsb[] = {" ","position","startpos", "moves", "e2e4", "d7d5"};
-  //UCI::loop(6, argsb);
-  //update_command("uci");
-  cout << "GLOB COMMAND -> " << endl;
-
-  char * argse[] = {" ", "uci"};
-  UCI::loop(2, argse); // GO
+  char* moves = "d7d5";
+  char setup[100] = "position startpos moves e2e4 ";
+  char* argse[4];
+  argse[0] = "uci";
+  argse[1] = strcat(setup,moves);
+  argse[2] = "isready";
+  argse[3] = "go";
+  UCI::loop(4, argse); // GO
+  
+  
   Threads.set(0); // this must come after moves command
-
-
   // std::stringstream stream;
   //test.move_piece(1,0, 2,0);
 
@@ -73,12 +73,4 @@ int main(void) {
 
   return(0);
 
-}
-
-
-void update_command(char *new_command)
-{
-    size_t maxlen = strlen(new_command);
-    cout << "maxlen -> "<< maxlen << endl;
-    strcpy(command, new_command);
 }
