@@ -31,7 +31,7 @@ To build this project's software: first clone the repository then run
 cmake .
 make
 
-./chess
+./main
 
 ```
 
