@@ -1,29 +1,4 @@
-#include <iostream>
-#include <list>
-#include <string>
-#include <unistd.h>
-using namespace std;
-#include "board.hpp"
-#include "chess_piece.hpp"
-#include <unistd.h>
-
-//Stockfish Includes [TODO fix relative paths]
-#include "Stockfish/src/bitboard.h"
-#include "Stockfish/src/position.h"
-#include "Stockfish/src/search.h"
-#include "Stockfish/src/thread.h"
-#include "Stockfish/src/tt.h"
-#include "Stockfish/src/uci.h"
-#include "Stockfish/src/syzygy/tbprobe.h"
-#include <pthread.h>
-#include <cstring>
-
-// QT includes
-#include <QApplication>
-#include <QPushButton>
-#include <QPixmap>
-#include <QLabel>
-#include <QDebug>
+#include "main.h"
 
 char board[8][8];
 
@@ -41,7 +16,7 @@ int main(int argc, char **argv)
     // Initialise the Stockfish chess engine
     stockfishInit();
 
-    cout << "GhostChess V_0.1" << endl;
+    std::cout << "GhostChess V_0.1" << std::endl;
 
     Board test;
     // Setup engine arguments, moves holds the moves, therefore state of board
