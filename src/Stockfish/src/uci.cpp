@@ -188,7 +188,7 @@ namespace {
 /// run 'bench', once the command is executed the function returns immediately.
 /// In addition to the UCI ones, also some additional debug commands are supported.
 
-void UCI::loop(int argc, char* argv[]) {
+void UCI::loop(int argc, const char* argv[]) {
 
   Position pos;
   string token, cmd;
@@ -201,20 +201,16 @@ void UCI::loop(int argc, char* argv[]) {
       cmd += std::string(argv[i]) + " ";
   cout << "COMMAND "<<cmd << endl;
   int j =0;
-  char* cmds_arr[] = {"uci","position startpos moves e2e4 d7d5", "readyok","go depth 10"};
+  //char* cmds_arr[] = {"uci","position startpos moves e2e4 d7d5", "readyok","go depth 10"};
   do {
       //if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
       //    cmd = "quit";
 
      // istringstream is(cmd);
-        istringstream is(cmds_arr[j]);
-        cout << "CMDS ARR => " << cmds_arr[j] << endl;
+        istringstream is(argv[j]);
         j++;
       token.clear(); // Avoid a stale if getline() returns empty or blank line
       is >> skipws >> token;
-
-      cout << "TOKEN" << token << endl;
-      
     
       // The GUI sends 'ponderhit' to tell us the user has played the expected move.
       // So 'ponderhit' will be sent if we were told to ponder on the same move the

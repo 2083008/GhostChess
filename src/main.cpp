@@ -19,6 +19,12 @@ using namespace std;
 #include <pthread.h>
 #include <cstring>
 
+#include <QApplication>
+#include <QPushButton>
+#include <QPixmap>
+#include <QLabel>
+#include <QDebug>
+
 char board[8][8];
 
 
@@ -27,9 +33,9 @@ namespace PSQT {
   void init();
 }
 
-void update_command(char *new_command);
+void setUpPawn(QWidget window, QString pname, QString asset_path);
 
-int main(void) {
+int main(int argc, char **argv) {
 
   std::cout << engine_info() << std::endl;
 
@@ -47,17 +53,44 @@ int main(void) {
   
   cout << "GhostChess V_0.1" << endl;
   Board test;
-  char* moves = "d7d5";
+  const char* moves = "d7d5";
   char setup[100] = "position startpos moves e2e4 ";
-  char* argse[4];
+  const char* argse[4] = {"uci", strcat(setup,moves),"isready","go"};
+  /*
   argse[0] = "uci";
   argse[1] = strcat(setup,moves);
   argse[2] = "isready";
-  argse[3] = "go";
+  argse[3] = "go"; */
   UCI::loop(4, argse); // GO
   
   
   Threads.set(0); // this must come after moves command
+  
+  QApplication myapp(argc,argv);
+
+  QWidget window;
+  window.setFixedSize(800, 500);
+  QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
+
+  QLabel *board = new QLabel("Hello world", &window);
+  //button->setGeometry(10, 10, 200, 200);
+  QPixmap pix(assets_path + "chess_board.png");
+  board->setPixmap(pix);
+  
+  //setUpPawn(window, "p1", assets_path);
+
+  /*
+  QLabel *pawn = new QLabel("p1", &window);
+  QPixmap pixp(assets_path + "pawn_white.png");
+  pawn->setPixmap(pixp);
+  pawn->setGeometry(10,320,50,80); //x1,y1,
+  */
+
+  window.show();
+  
+  return myapp.exec();
+  
+  
   // std::stringstream stream;
   //test.move_piece(1,0, 2,0);
 
@@ -71,6 +104,16 @@ int main(void) {
   //cout << rook1.valid_move(position{7,3},position{1,3}) << endl;
   //cout << rook1.piece_colour << endl;
 
-  return(0);
+  //return(0);
 
 }
+
+/*
+void setUpPawn(QWidget window, QString pname, QString assets_path) {
+  
+  QLabel *pawn = new QLabel(pname, &window);
+  QPixmap pixp(assets_path + "pawn_white.png");
+  pawn->setPixmap(pixp);
+  pawn->setGeometry(10,320,50,80); //x1,y1
+
+} */
