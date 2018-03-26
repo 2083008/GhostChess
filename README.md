@@ -26,6 +26,11 @@ All project-related software can be found in folder "src", and all required sche
 * 2x 8-1 FET Mux/Demux (SN74CBT3251)
 * Laser-cut Acrylic chess board and 3D printed pieces
 
+# Assembling the mechanical arm:
+![Logo](Docs/XYplaneDiag.png)
+All measurements in mm.
+
+A Plywood base is used to ensure that there is no unwanted lateral motion under tension. T-slot bars act as runners for oak shuttles, held in place by T-bolts. The Y plane movement is supported by two T-slot bars, each 700mm in length. Mounted to both the Oak shuttles on the Y plane is an oak bar which holds the 3rd, X plane, T-slot bar in place. Each shuttle is moved using a timing belt which is mounted through 2 pulleys to a stepper motor.
 
 ## Building Software <a name="building_software"></a>
 To build this project's software: first clone the repository then run
