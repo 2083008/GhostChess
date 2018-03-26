@@ -17,11 +17,14 @@ Playing games on a computer screen can be great - but it takes away from the gam
 
 # Getting Started <a name="getting_started"></a>
 
-## Required Hardware <a name="required_hardware"></a>
-* 2x Stepper Motors
-* Electromagnet and set of magnets
-* Sensor matrix (hall effect sensors or read switch)
-* Chess board and pieces
+## Required Hardware and Parts <a name="required_hardware"></a>
+* The full Bill of Materials can be found on this link (still being updated): goo.gl/mntyCQ
+* 3x Stepper Motors (Nema 17)
+* 3x Stepper motor drivers (Pololu A4988)
+* 1x Electromagnet (3/4' Diameter, 4.5kg pull force) and 40x Button Magnets (3mm diameter, 2mm height)
+* 72x Latching Hall-effect Sensors (SS361RT) and 72 10kohm resistors
+* 2x 8-1 FET Mux/Demux (SN74CBT3251)
+* Laser-cut Acrylic chess board and 3D printed pieces
 
 
 ## Building Software <a name="building_software"></a>
@@ -56,9 +59,9 @@ QT GUI permitted refresh rate and latency introduced (may not be so much of an i
 Structure software in classes, associated unit tests
 
 ### Team Roles
-Alex Angelov - Head of Mechatronics
-Tim Ness - Software
-Alex Smith - Software
+* Alex Angelov - Head of Mechatronics
+* Tim Ness - Software
+* Alex Smith - Software
 
 # Progress Success Evaluation
 Issue tracking and Project Tracking through github's associated tools.
