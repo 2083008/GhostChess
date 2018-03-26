@@ -64,3 +64,6 @@ Alex Smith - Software
 Issue tracking and Project Tracking through github's associated tools.
 
 How does the project acheive the goals that are set out above?
+
+## FAQ/Common Issues
+
