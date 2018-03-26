@@ -59,9 +59,9 @@ QT GUI permitted refresh rate and latency introduced (may not be so much of an i
 Structure software in classes, associated unit tests
 
 ### Team Roles
-* Alex Angelov - Head of Mechatronics
-* Tim Ness - Software
-* Alex Smith - Software
+* Alex Angelov - 3D Pieces Modelling, Board Production, Position Sensing and Related Software
+* Tim Ness - Design Assembly, Accurate Motor Control and Related Software
+* Alex Smith - Chess Engine Integration and QT GUI Interface
 
 # Progress Success Evaluation
 Issue tracking and Project Tracking through github's associated tools.
