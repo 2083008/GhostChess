@@ -16,7 +16,7 @@ Playing games on a computer screen can be great - but it takes away from the gam
   * [System Specification](#system_specification)
 
 # Getting Started <a name="getting_started"></a>
-
+All project-related software can be found in folder "src", and all required schematics/CAD files/PCB designs/footprints are located in folder "Docs".
 ## Required Hardware and Parts <a name="required_hardware"></a>
 * The full Bill of Materials can be found on this link (still being updated): goo.gl/mntyCQ
 * 3x Stepper Motors (Nema 17)
