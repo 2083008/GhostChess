@@ -1,8 +1,8 @@
 ![Logo](Docs/g10154.png)
 # team11_RTEP5: Mechanised User vs. Computer Chess Board
-Computer chess engines have become very advanced and are great for learning how to play or improving your skills. However, playing on a computer is just not the same as seeing the physical pieces move accross the board!
+Computer chess engines have become very advanced and are great for learning how to play or improving your skills. However, playing on a computer is just not the same as seeing the physical pieces move across the board!
 
-This project aims to design and build a mechanised chess engine, allowing users to play against the StockFish chess engine on a physical board. A mechanical arm will use an electromagnet to move the computer's pieces accross the board, mimicking a real chess expert.
+This project aims to design and build a mechanised chess device, allowing users to play against the StockFish chess engine on a physical board. An X-Y positioning table (stage) will use an electromagnet to execute the computer-generated best moves and move the physical pieces across the board, mimicking a real chess expert.
 
 ![Layers of the system](Docs/path7416.png)
 
