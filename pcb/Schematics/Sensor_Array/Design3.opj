@@ -1,0 +1,110 @@
+(ExpressProject "Design3"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "..\library1.olb"
+        (Type "Schematic Library"))
+      (File "..\muxdecoder.olb"
+        (Type "Schematic Library"))
+      (File ".\library1.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\design3.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (SN74CBT3251D
+      (FullPartName "SN74CBT3251D.Normal")
+      (LibraryName "H:\DESKTOP\EMBEDDED_SCHEMATICS\LIBRARY1.OLB")
+      (DeviceIndex "0"))
+    ("HEADER 9"
+      (FullPartName "HEADER 9.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    ("CONN TRBLK 9"
+      (FullPartName "CONN TRBLK 9.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    ("CONN SOCKET 9"
+      (FullPartName "CONN SOCKET 9.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (SN74F151/SO
+      (FullPartName "SN74F151/SO.Normal")
+      (LibraryName "H:\DESKTOP\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (SN74AS151/SO
+      (FullPartName "SN74AS151/SO.Normal")
+      (LibraryName "H:\DESKTOP\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (SN74LS155A
+      (FullPartName "SN74LS155A.Normal")
+      (LibraryName "H:\DESKTOP\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (SN74LS155/SO
+      (FullPartName "SN74LS155/SO.Normal")
+      (LibraryName "H:\DESKTOP\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (VCC
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (MC74ACT138/SO
+      (FullPartName "MC74ACT138/SO.Normal")
+      (LibraryName "H:\DESKTOP\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (MC74AC138/SO
+      (FullPartName "MC74AC138/SO.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\MUXDECODER.OLB")
+      (DeviceIndex "0"))
+    (R2
+      (FullPartName "R2.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (R-PACK7
+      (FullPartName "R-PACK7.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (R-PACK
+      (FullPartName "R-PACK.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (SS361RT
+      (FullPartName "SS361RT.Normal")
+      (LibraryName "H:\DESKTOP\LIBRARY1.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory "H:\Desktop\EMBEDDED_SCHEMATICS")
+  (MPSSessionName "2083008s")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\design3.dsn")
+      (Path "Design Resources" ".\design3.dsn" "SCHEMATIC1")
+      (Path "Design Resources" "Library")
+      (Select "Design Resources" ".\design3.dsn" "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 420"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 52 979 52 231")
+        (Scroll "-412 -2")
+        (Zoom "65")
+        (Occurrence "/"))
+      (Path "Z:\5TH_YEAR\REAL TIME\1.SCHEMATICS\SENSOR_ARRAY\DESIGN3.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))
