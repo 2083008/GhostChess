@@ -1,13 +1,18 @@
 #include "main.h"
+#include <vector>
 
 char board[8][8];
+
+//constants
+#define X_OFFSET 13
+#define Y_OFFSET 385
+#define IMAGE_SIZE 53
 
 namespace PSQT
 {
 void init();
 }
 
-void setUpPawn(QWidget window, QString pname, QString asset_path);
 void stockfishInit();
 
 int main(int argc, char **argv)
@@ -32,11 +37,37 @@ int main(int argc, char **argv)
     QWidget window;
     window.setFixedSize(800, 500);
     QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
-
-    QLabel *board = new QLabel("Hello world", &window);
+    QLabel *board = new QLabel(&window);
     //button->setGeometry(10, 10, 200, 200);
     QPixmap pix(assets_path + "chess_board.png");
     board->setPixmap(pix);
+    
+    std::vector<ChessPiece*> p;
+    p.reserve(8);
+    std::vector<ChessPiece*> p1;
+    p.reserve(8);
+
+
+    for(int i = 0; i < 8;i++){
+        Pawn* tmp = new Pawn(WHITE_, X_OFFSET, Y_OFFSET);
+        tmp->piece_image = new QLabel(&window);
+        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE, IMAGE_SIZE,IMAGE_SIZE);
+        QPixmap pixk(assets_path + "pawn_white.png");
+        tmp->piece_image->setPixmap(pixk);
+        p.emplace_back(tmp);
+    }
+
+    for(int i=0; i <8; i++){
+        Pawn* tmp = new Pawn(BLACK_, X_OFFSET, Y_OFFSET);
+        tmp->piece_image = new QLabel(&window);
+        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE-260, IMAGE_SIZE,IMAGE_SIZE);
+        QPixmap pixk(assets_path + "pawn_black.png");
+        tmp->piece_image->setPixmap(pixk);
+        p.emplace_back(tmp);
+    }
+
+    p.at(3)->piece_image->setGeometry(X_OFFSET + 3*IMAGE_SIZE,Y_OFFSET-100, IMAGE_SIZE,IMAGE_SIZE);
+
 
     //setUpPawn(window, "p1", assets_path);
     window.show();
@@ -58,12 +89,3 @@ void stockfishInit()
     Threads.set(Options["Threads"]);
     Search::clear(); // After threads are up
 }
-/*
-void setUpPawn(QWidget window, QString pname, QString assets_path) {
-  
-  QLabel *pawn = new QLabel(pname, &window);
-  QPixmap pixp(assets_path + "pawn_white.png");
-  pawn->setPixmap(pixp);
-  pawn->setGeometry(10,320,50,80); //x1,y1
-
-} */

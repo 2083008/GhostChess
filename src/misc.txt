@@ -1,0 +1,16 @@
+ // std::stringstream stream;
+  //test.move_piece(1,0, 2,0);
+
+  //test.print_board();
+
+ // test.move_piece(0,0, 2,1);
+  //test.print_board();
+ // cout<< test.board_to_FEN(BLACK_) << endl;
+
+  //Rook rook1 = Rook(WHITE_);
+  //cout << rook1.valid_move(position{7,3},position{1,3}) << endl;
+  //cout << rook1.piece_colour << endl;
+
+  //return(0);
+
+  //Threads.set(0); // this must come after moves command

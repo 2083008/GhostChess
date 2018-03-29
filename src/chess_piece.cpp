@@ -4,9 +4,13 @@
 #include <stdio.h>
 
 
-ChessPiece :: ChessPiece(colour_ col)
+
+
+ChessPiece::ChessPiece(colour_ col, int x, int y)
 {
     piece_colour = col;
+    this->x = x;
+    this->y = y;
 };
 
 
@@ -26,6 +30,11 @@ int King::valid_move(position start_position, position end_position)
     
     return 1;
 
+}
+
+int King::move(int x, int y)
+{
+    return 0;
 }
 
 

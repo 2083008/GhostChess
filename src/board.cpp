@@ -6,7 +6,7 @@
 //init the board
 Board::Board()
 {
-
+    
 }
 
 char Board::get_position(int row, int col)
