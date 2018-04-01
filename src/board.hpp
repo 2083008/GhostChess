@@ -4,6 +4,11 @@
 #include <string>
 #include "chess_piece.hpp"
 
+//constants
+#define X_OFFSET 12
+#define Y_OFFSET 385
+#define IMAGE_SIZE 53
+
 class Board {
     //0 0 is white rook 
     char board[8][8] = {
@@ -22,7 +27,7 @@ class Board {
     //std::string player2;
 
     public:
-        Board();
+        Board(QWidget* pwindow);
 
         //returns piece at that position
         char get_position(int row, int col);

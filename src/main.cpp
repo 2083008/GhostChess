@@ -4,9 +4,9 @@
 char board[8][8];
 
 //constants
-#define X_OFFSET 13
-#define Y_OFFSET 385
-#define IMAGE_SIZE 53
+//#define X_OFFSET 12
+//#define Y_OFFSET 385
+//#define IMAGE_SIZE 54
 
 namespace PSQT
 {
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
     std::cout << "GhostChess V_0.1" << std::endl;
 
-    Board test;
+    //Board test;
     // Setup engine arguments, moves holds the moves, therefore state of board
     const char *moves = " e2e4 d7d5 e4e5 d5d4";
     char setup[100] = "position startpos moves";
@@ -35,19 +35,21 @@ int main(int argc, char **argv)
     QApplication myapp(argc, argv);
 
     QWidget window;
+    QWidget* pwindow = &window;
     window.setFixedSize(800, 500);
     QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
     QLabel *board = new QLabel(&window);
-    //button->setGeometry(10, 10, 200, 200);
     QPixmap pix(assets_path + "chess_board.png");
     board->setPixmap(pix);
     
+    Board* test = new Board(pwindow);
+
     std::vector<ChessPiece*> p;
     p.reserve(8);
     std::vector<ChessPiece*> p1;
     p.reserve(8);
 
-
+    /*
     for(int i = 0; i < 8;i++){
         Pawn* tmp = new Pawn(WHITE_, X_OFFSET, Y_OFFSET);
         tmp->piece_image = new QLabel(&window);
@@ -66,9 +68,9 @@ int main(int argc, char **argv)
         p.emplace_back(tmp);
     }
 
-    p.at(3)->piece_image->setGeometry(X_OFFSET + 3*IMAGE_SIZE,Y_OFFSET-100, IMAGE_SIZE,IMAGE_SIZE);
+    p.at(0)->piece_image->setGeometry(X_OFFSET + 3*IMAGE_SIZE,Y_OFFSET-100, IMAGE_SIZE,IMAGE_SIZE);
 
-
+    */
     //setUpPawn(window, "p1", assets_path);
     window.show();
 

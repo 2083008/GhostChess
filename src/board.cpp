@@ -1,12 +1,40 @@
 #include <string>
 #include "board.hpp"
 #include <iostream>
+#include <QCoreApplication>
 
 
 //init the board
-Board::Board()
+Board::Board(QWidget* pwindow)
 {
-    
+    QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
+    std::vector< std::vector <ChessPiece*>> chessBoard;
+    chessBoard.resize(8,std::vector<ChessPiece*>(8));
+    for(int i = 0; i < 8;i++){
+        Pawn* tmp = new Pawn(WHITE_, X_OFFSET, Y_OFFSET);
+        tmp->piece_image = new QLabel(pwindow);
+        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE, IMAGE_SIZE,IMAGE_SIZE);
+        QPixmap pixk(assets_path + "pawn_white.png");
+        tmp->piece_image->setPixmap(pixk);
+        chessBoard[1][i] = tmp;
+    }
+
+    for(int i = 0; i < 8;i++){
+        Pawn* tmp = new Pawn(WHITE_, X_OFFSET, Y_OFFSET);
+        tmp->piece_image = new QLabel(pwindow);
+        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE-5*IMAGE_SIZE, IMAGE_SIZE,IMAGE_SIZE);
+        QPixmap pixk(assets_path + "pawn_black.png");
+        tmp->piece_image->setPixmap(pixk);
+        chessBoard[2][i] = tmp;
+    }
+
+    Rook* tmp = new Rook(WHITE_, X_OFFSET, Y_OFFSET);
+    tmp->piece_image = new QLabel(pwindow);
+    tmp->piece_image->setGeometry(X_OFFSET,Y_OFFSET, IMAGE_SIZE,IMAGE_SIZE);
+    QPixmap pixk(assets_path + "rook_white.png");
+    tmp->piece_image->setPixmap(pixk);
+    chessBoard[0][0] = tmp;
+    //p.reserve(8);
 }
 
 char Board::get_position(int row, int col)
