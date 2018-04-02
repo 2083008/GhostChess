@@ -44,34 +44,6 @@ int main(int argc, char **argv)
     
     Board* test = new Board(pwindow);
 
-    std::vector<ChessPiece*> p;
-    p.reserve(8);
-    std::vector<ChessPiece*> p1;
-    p.reserve(8);
-
-    /*
-    for(int i = 0; i < 8;i++){
-        Pawn* tmp = new Pawn(WHITE_, X_OFFSET, Y_OFFSET);
-        tmp->piece_image = new QLabel(&window);
-        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE, IMAGE_SIZE,IMAGE_SIZE);
-        QPixmap pixk(assets_path + "pawn_white.png");
-        tmp->piece_image->setPixmap(pixk);
-        p.emplace_back(tmp);
-    }
-
-    for(int i=0; i <8; i++){
-        Pawn* tmp = new Pawn(BLACK_, X_OFFSET, Y_OFFSET);
-        tmp->piece_image = new QLabel(&window);
-        tmp->piece_image->setGeometry(X_OFFSET + i*IMAGE_SIZE,Y_OFFSET-IMAGE_SIZE-260, IMAGE_SIZE,IMAGE_SIZE);
-        QPixmap pixk(assets_path + "pawn_black.png");
-        tmp->piece_image->setPixmap(pixk);
-        p.emplace_back(tmp);
-    }
-
-    p.at(0)->piece_image->setGeometry(X_OFFSET + 3*IMAGE_SIZE,Y_OFFSET-100, IMAGE_SIZE,IMAGE_SIZE);
-
-    */
-    //setUpPawn(window, "p1", assets_path);
     window.show();
 
     return myapp.exec();

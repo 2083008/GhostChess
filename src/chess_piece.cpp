@@ -2,15 +2,22 @@
 #include <cmath>
 #include <stdlib.h>     /* abs */
 #include <stdio.h>
+#include <iostream>
 
 
 
 
-ChessPiece::ChessPiece(colour_ col, int x, int y)
+
+
+ChessPiece::ChessPiece(colour_ col, position pos, QWidget* pwindow, QString path)
 {
-    piece_colour = col;
-    this->x = x;
-    this->y = y;
+    this->piece_colour = col;
+    this->pos = pos;
+    this->piece_image = new QLabel(pwindow);
+    this->piece_image->setGeometry(X_OFFSET + IMAGE_SIZE*pos.row,Y_OFFSET-IMAGE_SIZE*pos.column, IMAGE_SIZE,IMAGE_SIZE);
+    
+    
+
 };
 
 
@@ -63,6 +70,30 @@ int Rook::valid_move(position start_position, position end_position)
     return (!(abs(start_position.row - end_position.row)==0) != !(abs(start_position.column - end_position.column)==0));
 }
 
+void Rook::set_image(QString path)
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "rook_black";
+    } else {
+        piece_token = "rook_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
+}
+
+
+void Pawn::set_image(QString path)
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "pawn_black";
+    } else {
+        piece_token = "pawn_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
+}
 
 int Pawn::valid_move(position start_position, position end_position)
 {

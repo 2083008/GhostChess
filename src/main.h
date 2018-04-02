@@ -26,4 +26,6 @@
 #include <QLabel>
 #include <QDebug>
 
+QString path = QCoreApplication::applicationDirPath() + "/src/assets/";
+
 #endif

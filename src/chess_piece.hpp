@@ -3,6 +3,10 @@
 
 #include <QLabel>
 
+#define X_OFFSET 12
+#define Y_OFFSET 385
+#define IMAGE_SIZE 53
+
 
 enum colour_ {
     WHITE_,
@@ -19,12 +23,13 @@ class ChessPiece
 {
 public:
     colour_ piece_colour;
-    ChessPiece(colour_ piece_colour, int x,int y);
-    int x, y; // PIECE START POS
+    position pos;
+    ChessPiece(colour_ col, position pos, QWidget* pwindow, QString path);
     //*piece pointer to Qlabel for specific piece
     QLabel *piece_image;
     // returns 1 if valid and 0 if invalid
     virtual int valid_move(position start_position, position end_position) =0;
+    virtual void set_image(QString path) =0;
     //virtual int move(int x, int y) =0;
 
 };
@@ -56,6 +61,7 @@ class Rook : public ChessPiece
 {
 public:
     using ChessPiece::ChessPiece;
+    void set_image(QString path);
     int valid_move(position start_position, position end_position);
 };
 
@@ -63,6 +69,7 @@ class Pawn : public ChessPiece
 {
 public:
     using ChessPiece::ChessPiece;
+    void set_image(QString path);
     int valid_move(position start_position, position end_position);
 };
 
