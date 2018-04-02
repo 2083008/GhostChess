@@ -27,6 +27,17 @@ int Knight::valid_move(position start_position, position end_position)
     return 1;
 }
 
+void Knight::set_image(QString path) 
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "knight_black";
+    } else {
+        piece_token = "knight_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
+}
 
 int King::valid_move(position start_position, position end_position)
 {
@@ -37,6 +48,18 @@ int King::valid_move(position start_position, position end_position)
     
     return 1;
 
+}
+
+void King::set_image(QString path)
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "king_black";
+    } else {
+        piece_token = "king_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
 }
 
 int King::move(int x, int y)
@@ -55,12 +78,36 @@ int Queen::valid_move(position start_position, position end_position)
     }
 }
 
+void Queen::set_image(QString path)
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "queen_black";
+    } else {
+        piece_token = "queen_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
+}
+
 
 int Bishop::valid_move(position start_position, position end_position)
 {
     //if abs(start_position.row )
     return (abs(start_position.row - end_position.row) == abs(start_position.column - end_position.column));
 
+}
+
+void Bishop::set_image(QString path)
+{
+    QString piece_token;
+    if (this->piece_colour == BLACK_) {
+        piece_token = "bishop_black";
+    } else {
+        piece_token = "bishop_white";
+    }
+    QPixmap pixk(path + piece_token);
+    this->piece_image->setPixmap(pixk);
 }
 
 

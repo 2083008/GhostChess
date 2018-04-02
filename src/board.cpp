@@ -22,18 +22,63 @@ Board::Board(QWidget* pwindow)
         tmp->set_image(assets_path);
         chessBoard[2][i] = tmp;
     }
+
+    //rooks
     Rook* rook = new Rook(WHITE_,position{0,0},pwindow,assets_path);
     rook->set_image(assets_path);
     chessBoard[0][0] = rook;
-    /*
-    Rook* tmp = new Rook(WHITE_, position{0,0},pwindow,assets_path);
-    tmp->piece_image = new QLabel(pwindow);
-    tmp->piece_image->setGeometry(X_OFFSET,Y_OFFSET, IMAGE_SIZE,IMAGE_SIZE);
-    QPixmap pixk(assets_path + "rook_white.png");
-    tmp->piece_image->setPixmap(pixk);
-    chessBoard[0][0] = tmp;
-    */
-    //p.reserve(8);
+    Rook* rook1 = new Rook(WHITE_,position{7,0},pwindow,assets_path);
+    rook1->set_image(assets_path);
+    chessBoard[7][0] = rook;
+    Rook* rookb = new Rook(BLACK_,position{0,7},pwindow,assets_path);
+    rookb->set_image(assets_path);
+    chessBoard[0][0] = rookb;
+    Rook* rookb1 = new Rook(BLACK_,position{7,7},pwindow,assets_path);
+    rookb1->set_image(assets_path);
+    chessBoard[7][7] = rookb1;
+
+    // Knights
+    Knight* knight = new Knight(WHITE_,position{1,0},pwindow,assets_path);
+    knight->set_image(assets_path);
+    chessBoard[1][0] = knight;
+    Knight* knight1 = new Knight(WHITE_,position{6,0},pwindow,assets_path);
+    knight1->set_image(assets_path);
+    chessBoard[6][0] = knight1;
+    Knight* knightb = new Knight(BLACK_,position{1,7},pwindow,assets_path);
+    knightb->set_image(assets_path);
+    chessBoard[1][7] = knightb;
+    Knight* knightb1 = new Knight(BLACK_,position{6,7},pwindow,assets_path);
+    knightb1->set_image(assets_path);
+    chessBoard[6][7] = knightb1;
+
+
+    Bishop* bish = new Bishop(WHITE_,position{2,0},pwindow,assets_path);
+    bish->set_image(assets_path);
+    chessBoard[2][0] = bish;
+     Bishop* bish1 = new Bishop(WHITE_,position{5,0},pwindow,assets_path);
+    bish1->set_image(assets_path);
+    chessBoard[5][0] = bish1;
+     Bishop* bishb = new Bishop(BLACK_,position{2,7},pwindow,assets_path);
+    bishb->set_image(assets_path);
+    chessBoard[2][7] = bishb;
+     Bishop* bishb1 = new Bishop(BLACK_,position{5,7},pwindow,assets_path);
+    bishb1->set_image(assets_path);
+    chessBoard[5][7] = bishb1;
+
+    Queen* queen = new Queen(WHITE_,position{3,0},pwindow,assets_path);
+    queen->set_image(assets_path);
+    chessBoard[3][0] = queen;
+    Queen* queenb = new Queen(BLACK_,position{3,7},pwindow,assets_path);
+    queenb->set_image(assets_path);
+    chessBoard[3][7] = queenb;
+
+    King* king = new King(WHITE_,position{4,0},pwindow,assets_path);
+    king->set_image(assets_path);
+    chessBoard[4][0] = king;
+    King* kingb = new King(BLACK_,position{4,7},pwindow,assets_path);
+    kingb->set_image(assets_path);
+    chessBoard[4][7] = kingb;
+
 }
 
 char Board::get_position(int row, int col)

@@ -39,6 +39,7 @@ class Knight : public ChessPiece
 public:
     using ChessPiece::ChessPiece;
     int valid_move(position start_position, position end_position);
+    void set_image(QString path);
 
 };
 
@@ -47,6 +48,7 @@ class King : public ChessPiece
 public:
     using ChessPiece::ChessPiece;
     int valid_move(position start_position, position end_position);
+    void set_image(QString path);
     int move(int x,int y);
 };
 
@@ -55,6 +57,7 @@ class Bishop : public ChessPiece
 public:
     using ChessPiece::ChessPiece;
     int valid_move(position start_position, position end_position);
+    void set_image(QString path);
 };
 
 class Rook : public ChessPiece
@@ -78,6 +81,7 @@ class Queen : public ChessPiece
 public:
     using ChessPiece::ChessPiece;
     int valid_move(position start_position, position end_position);
+    void set_image(QString path);
 };
 
 
