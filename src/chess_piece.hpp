@@ -4,7 +4,7 @@
 #include <QLabel>
 
 #define X_OFFSET 12
-#define Y_OFFSET 385
+#define Y_OFFSET 388
 #define IMAGE_SIZE 53
 
 

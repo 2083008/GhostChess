@@ -14,13 +14,13 @@ Board::Board(QWidget* pwindow)
     for(int i = 0; i < 8;i++){
         Pawn* tmp = new Pawn(WHITE_,position{i,1},pwindow,assets_path);
         tmp->set_image(assets_path);
-        chessBoard[1][i] = tmp;
+        chessBoard[i][1] = tmp;
     }
 
     for(int i = 0; i < 8;i++){
         Pawn* tmp = new Pawn(BLACK_,position{i,6},pwindow,assets_path);
         tmp->set_image(assets_path);
-        chessBoard[2][i] = tmp;
+        chessBoard[i][6] = tmp;
     }
 
     //rooks
@@ -29,10 +29,10 @@ Board::Board(QWidget* pwindow)
     chessBoard[0][0] = rook;
     Rook* rook1 = new Rook(WHITE_,position{7,0},pwindow,assets_path);
     rook1->set_image(assets_path);
-    chessBoard[7][0] = rook;
+    chessBoard[7][0] = rook1;
     Rook* rookb = new Rook(BLACK_,position{0,7},pwindow,assets_path);
     rookb->set_image(assets_path);
-    chessBoard[0][0] = rookb;
+    chessBoard[0][7] = rookb;
     Rook* rookb1 = new Rook(BLACK_,position{7,7},pwindow,assets_path);
     rookb1->set_image(assets_path);
     chessBoard[7][7] = rookb1;
@@ -79,6 +79,8 @@ Board::Board(QWidget* pwindow)
     kingb->set_image(assets_path);
     chessBoard[4][7] = kingb;
 
+    this->chessBoard = chessBoard;
+
 }
 
 char Board::get_position(int row, int col)
@@ -103,6 +105,19 @@ int Board::move_piece(int row1, int col1, int row2, int col2)
 
     return 0;
 
+}
+
+int Board::move(position startpos, position endpos)
+{
+    ChessPiece* piece = this->chessBoard[startpos.row][startpos.column];
+    piece->piece_image->setGeometry(X_OFFSET + IMAGE_SIZE*endpos.row,Y_OFFSET-IMAGE_SIZE*endpos.column, IMAGE_SIZE,IMAGE_SIZE);
+    
+    //NULL since the piece at this position has been moved
+    this->chessBoard[startpos.row][startpos.column] = NULL;
+    this->chessBoard[endpos.row][endpos.column] = piece;
+
+    //this->chessBoard[startpos.row][startpos.column] = piece
+    return 0;
 }
 
 void Board::print_board()

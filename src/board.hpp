@@ -20,6 +20,7 @@ class Board {
         
          
     };
+    std::vector< std::vector <ChessPiece*>> chessBoard;
     //std::string player1;
     //std::string player2;
 
@@ -32,6 +33,8 @@ class Board {
         // returns 0 if succesful, else 1 for invalid move
         // row1 col1 initial position : row2,col2 final position
         int move_piece(int row1, int col1, int row2, int col2);
+
+        int move(position startpos, position endpos);
 
         // print board layout to stdout
         void print_board();
