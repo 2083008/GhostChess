@@ -73,7 +73,6 @@ namespace {
     while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
     {
         states->emplace_back();
-        cout << "PARSE MOVE LIST ->" << token << endl;
         pos.do_move(m, states->back());
     }
   }
@@ -199,7 +198,7 @@ void UCI::loop(int argc, const char* argv[]) {
 
   for (int i = 1; i < argc; ++i)
       cmd += std::string(argv[i]) + " ";
-  cout << "COMMAND "<<cmd << endl;
+  //cout << "COMMAND "<<cmd << endl;
   int j =0;
   //char* cmds_arr[] = {"uci","position startpos moves e2e4 d7d5", "readyok","go depth 10"};
   do {

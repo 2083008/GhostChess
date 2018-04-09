@@ -18,6 +18,8 @@
 #include "board.hpp"
 #include "chess_piece.hpp"
 #include <unistd.h>
+#include <vector>
+#include <thread>
 
 // QT includes
 #include <QApplication>
@@ -26,6 +28,7 @@
 #include <QLabel>
 #include <QDebug>
 
-QString path = QCoreApplication::applicationDirPath() + "/src/assets/";
+
+extern std::string best_move_buffer;
 
 #endif

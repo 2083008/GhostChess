@@ -1,7 +1,5 @@
 #include "main.h"
-#include <vector>
-#include <QGraphicsScene>
-#include <thread>
+
 
 char board[8][8];
 
@@ -14,6 +12,8 @@ namespace PSQT
 {
 void init();
 }
+
+std::string best_move_buffer;
 
 void stockfishInit();
 // returns a=1 b=2...
@@ -36,6 +36,8 @@ int main(int argc, char **argv)
 
     // Run the engine
     UCI::loop(4, argse);
+    Search::clear(); // Join the best move search threads
+    std::cout <<"BEST MOVE -> "<< best_move_buffer << std::endl;
 
     QApplication myapp(argc, argv);
 
@@ -51,7 +53,7 @@ int main(int argc, char **argv)
     Board* test = new Board(pwindow);
     test->move(position{0,1},position{0,3});
     test->move(position{4,1},position{4,2});
-
+    
     
 
     window.show();
