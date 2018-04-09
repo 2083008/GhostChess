@@ -32,11 +32,6 @@ int main(int argc, char **argv)
 
     std::cout << "GhostChess V_0.1" << std::endl;
 
-    //Board test;
-    // Setup engine arguments, moves holds the moves, therefore state of board
-    const char *moves = " e2e4";
-    runEngine(moves);
-
     QApplication myapp(argc, argv);
 
     QWidget window;
@@ -46,13 +41,11 @@ int main(int argc, char **argv)
     QLabel *board = new QLabel(&window);
     QPixmap pix(assets_path + "chess_board.png");
     board->setPixmap(pix);
-
    
     Board* test = new Board(pwindow);
    
     window.show();
     std::thread t1 = std::thread(parse_input, test);
-    
     return myapp.exec();
     
 }
@@ -60,11 +53,15 @@ void runEngine(const char* moves)
 {
     char setup[100] = "position startpos moves ";
     const char *argse[4] = {"uci", strcat(setup, moves), "isready", "go"};
-
+    
+    //silence cout from the engine
+    std::cout.setstate(std::ios_base::badbit); 
     // Run the engine
     UCI::loop(4, argse);
     Search::clear(); // Join the best move search threads
-    std::cout <<"BEST MOVE -> "<< best_move_buffer << std::endl;
+
+    std::cout.clear(); // reenable cout
+    std::cout << "Engines Move -> "<< best_move_buffer << std::endl;
 
 }
 
@@ -85,19 +82,20 @@ void stockfishInit()
 }
 
 void parse_input(Board* pboard)
-{
+{   
+    std::cout << "Enter a move in Algebraic Notation (E.g e2e4) or q to quit " << std::endl;
     for (std::string line; std::getline(std::cin, line);) {
         if(line == "q"){
+            //std::terminate(); should terminate the thread/join
             return;
         }
-        //std::cout << line << std::endl;
+        
         if(line.length()!=4) {
             std::cout << "Invalid input!" << std::endl;
             
         } else {
             move_history.append(line);
             move_history.append(" ");
-            std::cout << "moves -> " << move_history << std::endl;
 
             int tempy_start = line[1] - '0' -1;
             int tempy_end = line[3] - '0' -1;
@@ -105,7 +103,7 @@ void parse_input(Board* pboard)
                         position{charToInt(line[2]),tempy_end});
             
             const char* cmoves = move_history.c_str();
-            std::cout << "moves -> " << cmoves << std::endl;
+            std::cout << "Move List -> " << cmoves << std::endl;
             runEngine(cmoves);
 
             // BLACK MOVE
