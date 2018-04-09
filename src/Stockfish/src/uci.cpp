@@ -196,10 +196,13 @@ void UCI::loop(int argc, const char* argv[]) {
 
   pos.set(StartFEN, false, &states->back(), uiThread.get());
 
-  for (int i = 1; i < argc; ++i)
+  int arglen =0;
+  for (int i = 1; i < argc; ++i){
       cmd += std::string(argv[i]) + " ";
-  //cout << "COMMAND "<<cmd << endl;
-  int j =0;
+      cout << "i=> "<< i << endl;
+      arglen=i;
+  }
+  int j=0;
   //char* cmds_arr[] = {"uci","position startpos moves e2e4 d7d5", "readyok","go depth 10"};
   do {
       //if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
@@ -243,7 +246,7 @@ void UCI::loop(int argc, const char* argv[]) {
       else
           sync_cout << "Unknown command: " << cmd << sync_endl;
     
-  } while (token != "quit" && j<4 );//&& argc == 1); // Command line args are one-shot
+  } while (token != "quit" && j<=arglen );//&& argc == 1); // Command line args are one-shot
 }
 
 

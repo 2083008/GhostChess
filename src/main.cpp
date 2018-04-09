@@ -13,12 +13,16 @@ namespace PSQT
 void init();
 }
 
+//buffer that will be updated by the chess engine
 std::string best_move_buffer;
+// buffer to store move history of the game
+std::string move_history;
 
 void stockfishInit();
 // returns a=1 b=2...
 int charToInt(char val);
 void parse_input(Board* pboard);
+void runEngine(const char* moves);
 
 int main(int argc, char **argv)
 {
@@ -30,14 +34,8 @@ int main(int argc, char **argv)
 
     //Board test;
     // Setup engine arguments, moves holds the moves, therefore state of board
-    const char *moves = " e2e4 d7d5 e4e5 d5d4";
-    char setup[100] = "position startpos moves";
-    const char *argse[4] = {"uci", strcat(setup, moves), "isready", "go"};
-
-    // Run the engine
-    UCI::loop(4, argse);
-    Search::clear(); // Join the best move search threads
-    std::cout <<"BEST MOVE -> "<< best_move_buffer << std::endl;
+    const char *moves = " e2e4";
+    runEngine(moves);
 
     QApplication myapp(argc, argv);
 
@@ -51,17 +49,25 @@ int main(int argc, char **argv)
 
    
     Board* test = new Board(pwindow);
-    test->move(position{0,1},position{0,3});
-    test->move(position{4,1},position{4,2});
-    
-    
-
+   
     window.show();
     std::thread t1 = std::thread(parse_input, test);
     
     return myapp.exec();
     
 }
+void runEngine(const char* moves)
+{
+    char setup[100] = "position startpos moves ";
+    const char *argse[4] = {"uci", strcat(setup, moves), "isready", "go"};
+
+    // Run the engine
+    UCI::loop(4, argse);
+    Search::clear(); // Join the best move search threads
+    std::cout <<"BEST MOVE -> "<< best_move_buffer << std::endl;
+
+}
+
 void stockfishInit()
 {
     //std::cout << engine_info() << std::endl;
@@ -89,11 +95,27 @@ void parse_input(Board* pboard)
             std::cout << "Invalid input!" << std::endl;
             
         } else {
+            move_history.append(line);
+            move_history.append(" ");
+            std::cout << "moves -> " << move_history << std::endl;
+
             int tempy_start = line[1] - '0' -1;
             int tempy_end = line[3] - '0' -1;
             pboard->move(position{charToInt(line[0]),tempy_start},
                         position{charToInt(line[2]),tempy_end});
-            //std::cout <<  << std::endl;
+            
+            const char* cmoves = move_history.c_str();
+            std::cout << "moves -> " << cmoves << std::endl;
+            runEngine(cmoves);
+
+            // BLACK MOVE
+            int tempy_startb = best_move_buffer[1] - '0' -1;
+            int tempy_endb = best_move_buffer[3] - '0' -1;
+            pboard->move(position{charToInt(best_move_buffer[0]),tempy_startb},
+                        position{charToInt(best_move_buffer[2]),tempy_endb});
+            move_history += best_move_buffer;
+            move_history += " ";
+            
         }
     }
 }

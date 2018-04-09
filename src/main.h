@@ -30,5 +30,6 @@
 
 
 extern std::string best_move_buffer;
+extern std::string move_history;
 
 #endif
