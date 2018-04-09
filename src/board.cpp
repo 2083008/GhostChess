@@ -110,8 +110,16 @@ int Board::move_piece(int row1, int col1, int row2, int col2)
 int Board::move(position startpos, position endpos)
 {
     ChessPiece* piece = this->chessBoard[startpos.row][startpos.column];
-    piece->piece_image->setGeometry(X_OFFSET + IMAGE_SIZE*endpos.row,Y_OFFSET-IMAGE_SIZE*endpos.column, IMAGE_SIZE,IMAGE_SIZE);
     
+    // != NULL then There is a piece to be taken
+    if (this->chessBoard[endpos.row][endpos.column] != NULL) {
+        ChessPiece* end_piece = this->chessBoard[endpos.row][endpos.column];
+        end_piece->piece_image->~QLabel(); // free the area at
+    }
+
+    // move piece to new position
+    piece->piece_image->setGeometry(X_OFFSET + IMAGE_SIZE*endpos.row,Y_OFFSET-IMAGE_SIZE*endpos.column, IMAGE_SIZE,IMAGE_SIZE);
+ 
     //NULL since the piece at this position has been moved
     this->chessBoard[startpos.row][startpos.column] = NULL;
     this->chessBoard[endpos.row][endpos.column] = piece;
