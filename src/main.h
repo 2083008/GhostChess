@@ -27,6 +27,12 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QDebug>
+#include <QGroupBox>
+#include <QGridLayout>
+#include <QRadioButton>
+#include <QTextEdit>
+#include <QString>
+
 
 
 extern std::string best_move_buffer;
