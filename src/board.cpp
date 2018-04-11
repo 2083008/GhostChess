@@ -2,7 +2,7 @@
 #include "board.hpp"
 #include <iostream>
 #include <QCoreApplication>
-
+#include "main.h"
 
 //init the board
 Board::Board(QWidget* pwindow)
@@ -88,23 +88,21 @@ char Board::get_position(int row, int col)
     return board[col][row];
 }
 
-int Board::move_piece(int row1, int col1, int row2, int col2)
+// eg e2e4
+void Board::move_piece(std::string move)
 {
-    char piece = get_position(row1, col1);
+    move_history.append(move);
+    move_history.append(" ");
+    //move_box->append(QString::fromStdString(move));
 
-    // std::cout << piece << std::endl;
-    // no piece at original position
-    if (piece == ' '){
-        return 1;
-    }
-
-    // move piece and reset pieces initial position
-    board[row1][col1] = ' ';
-    board[row2][col2] = piece;
-
-
-    return 0;
-
+    int tempy_start = move[1] - '0' -1;
+    int tempy_end = move[3] - '0' -1;
+    this->move(position{charToInt(move[0]),tempy_start},
+                position{charToInt(move[2]),tempy_end});
+    
+    const char* cmoves = move_history.c_str();
+    std::cout << "Move List -> " << cmoves << std::endl;
+    //runEngine(cmoves);
 }
 
 int Board::move(position startpos, position endpos)
@@ -179,4 +177,10 @@ std::string Board::board_to_FEN(colour_ active_colour)
         FEN_board += " b";
     }
     return FEN_board;
+}
+
+int Board::charToInt(char val)
+{
+    int tmp = val;
+    return tmp-97; // 97 to get a = 0, b = 1 etc..
 }
