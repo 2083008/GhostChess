@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "MainWindow.h"
 
 char board[8][8];
 
@@ -23,6 +23,7 @@ void stockfishInit();
 int charToInt(char val);
 void parse_input(Board* pboard, QTextEdit* move_box);
 void runEngine(const char* moves);
+void on_some_pushButton_clicked();
 
 int main(int argc, char **argv)
 {
@@ -33,37 +34,19 @@ int main(int argc, char **argv)
     std::cout << "GhostChess V_0.1" << std::endl;
 
     QApplication myapp(argc, argv);
-    // TODO put this in a class
-    QWidget window;
-    QWidget* pwindow = &window;
-    window.setFixedSize(800, 500);
-    window.setWindowTitle("GhostChess");
-    QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
-    QLabel *board = new QLabel(&window);
-    QPixmap pix(assets_path + "chess_board.png");
-    board->setPixmap(pix);
-    
-    Board* test = new Board(pwindow);
+    MainWindow mainWin;
+    MainWindow* pmainWin = &mainWin;
+    Board* test = new Board(pmainWin);
+    mainWin.show();
 
-    QLabel* button_label = new QLabel("Select difficulty:",&window);
-    button_label->setGeometry(QRect(QPoint(500, 0),QSize(300, 50)));
-    QRadioButton* easy_button = new QRadioButton("Easy", &window);
-    // set size and location of the button
-    easy_button->setGeometry(QRect(QPoint(500, 50),QSize(150, 50)));
-    QRadioButton* medium_button = new QRadioButton("Medium", &window);
-    // set size and location of the button
-    medium_button->setGeometry(QRect(QPoint(500, 100),QSize(150, 50)));
-    QRadioButton* hard_button = new QRadioButton("Hard", &window);
-    // set size and location of the button
-    hard_button->setGeometry(QRect(QPoint(500, 150),QSize(150, 50)));
+    std::thread t1 = std::thread(parse_input, test,pmainWin->move_box);
 
-    QTextEdit* move_box = new QTextEdit(&window);
-    move_box->setGeometry(QRect(QPoint(500, 225),QSize(300, 200)));
+    return myapp.exec();   
+}
 
-    window.show();
-    std::thread t1 = std::thread(parse_input, test,move_box);
-    return myapp.exec();
-    
+void on_some_pushButton_clicked()
+{
+    std::cout << "PRESSSED";
 }
 void runEngine(const char* moves)
 {
