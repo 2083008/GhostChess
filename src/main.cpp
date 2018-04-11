@@ -23,7 +23,6 @@ void stockfishInit();
 int charToInt(char val);
 void parse_input(Board* pboard, QTextEdit* move_box);
 void runEngine(const char* moves);
-void on_some_pushButton_clicked();
 
 int main(int argc, char **argv)
 {
@@ -37,17 +36,13 @@ int main(int argc, char **argv)
     MainWindow mainWin;
     MainWindow* pmainWin = &mainWin;
     Board* test = new Board(pmainWin);
-    mainWin.show();
+    mainWin.setBoard(test);
 
     std::thread t1 = std::thread(parse_input, test,pmainWin->move_box);
-
+    mainWin.show();
     return myapp.exec();   
 }
 
-void on_some_pushButton_clicked()
-{
-    std::cout << "PRESSSED";
-}
 void runEngine(const char* moves)
 {
     char setup[100] = "position startpos moves ";
