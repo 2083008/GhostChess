@@ -36,6 +36,7 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 ![Logo](Docs/20180326_152725.jpg)
 
 ## Building Software <a name="building_software"></a>
+![GUU](Docs/GhostChessGUI.png)
 To build this project's software: first clone the repository then run
 
 ```
