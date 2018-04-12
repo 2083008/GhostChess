@@ -105,6 +105,22 @@ void Board::move_piece(std::string move)
     //runEngine(cmoves);
 }
 
+void Board::runEngine(const char* moves)
+{
+    char setup[100] = "position startpos moves ";
+    const char *argse[4] = {"uci", strcat(setup, moves), "isready", "go"};
+    
+    //silence cout from the engine
+    std::cout.setstate(std::ios_base::badbit); 
+    // Run the engine
+    UCI::loop(4, argse);
+    Search::clear(); // Join the best move search threads
+
+    std::cout.clear(); // reenable cout
+    std::cout << "Engines Move -> "<< best_move_buffer << std::endl;
+
+}
+
 int Board::move(position startpos, position endpos)
 {
     ChessPiece* piece = this->chessBoard[startpos.row][startpos.column];

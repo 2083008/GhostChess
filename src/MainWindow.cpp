@@ -1,10 +1,10 @@
 #include "MainWindow.h"
-
+#include "main.h"
 MainWindow::MainWindow()
 {
     QWidget window;
 
-    this->setFixedSize(950, 450);
+    this->setFixedSize(975, 465);
     this->setWindowTitle("GhostChess");
 
     QString assets_path = QCoreApplication::applicationDirPath() + "/src/assets/";
@@ -50,10 +50,12 @@ void MainWindow::confirm()
     move = this->move_entry->toPlainText();
     std::cout << move.toStdString() << std::endl;
     this->chessBoard->move_piece(move.toStdString());
-    this->move_box->append(move);
+    
 
     this->chessBoard->runEngine(move_history.c_str());
     this->chessBoard->move_piece(best_move_buffer);
+    this->move_box->clear();
+    this->move_box->append(QString::fromStdString(move_history));
 }
 
 void MainWindow::setBoard(Board* chessBoard)

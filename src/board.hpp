@@ -37,6 +37,9 @@ class Board {
 
         int charToInt(char val);
 
+        // run the engine on the moves list
+        void runEngine(const char* moves);
+
         std::string board_to_FEN(colour_ active_colour);
 
 };
