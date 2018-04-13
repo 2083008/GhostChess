@@ -93,6 +93,10 @@ void Board::move_piece(std::string move)
 {
     move_history.append(move);
     move_history.append(" ");
+    std::string python_args = "python src/stepperDriverCoordinates.py -c " + move;
+    const char* pyargs_c = python_args.c_str();
+    system(pyargs_c);
+
     //move_box->append(QString::fromStdString(move));
 
     int tempy_start = move[1] - '0' -1;

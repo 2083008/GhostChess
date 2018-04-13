@@ -31,7 +31,6 @@ int main(int argc, char **argv)
     stockfishInit();
 
     std::cout << "GhostChess V_0.1" << std::endl;
-
     QApplication myapp(argc, argv);
     MainWindow mainWin;
     MainWindow* pmainWin = &mainWin;
