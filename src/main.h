@@ -20,6 +20,7 @@
 #include <vector>
 #include <thread>
 
+#include <Python.h>
 // QT includes
 #include <QApplication>
 #include <QPushButton>

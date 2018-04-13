@@ -91,6 +91,7 @@ char Board::get_position(int row, int col)
 // eg e2e4
 void Board::move_piece(std::string move)
 {
+    system("src/main.py test");
     move_history.append(move);
     move_history.append(" ");
     //move_box->append(QString::fromStdString(move));

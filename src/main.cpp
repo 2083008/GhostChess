@@ -1,6 +1,7 @@
 #include "main.h"
 #include "MainWindow.h"
 
+
 char board[8][8];
 
 //constants
@@ -31,6 +32,12 @@ int main(int argc, char **argv)
     stockfishInit();
 
     std::cout << "GhostChess V_0.1" << std::endl;
+    FILE* file;
+    PyObject *pName, *pModule, *pDict, *pFunc, *pValue;
+    //Py_Initialize();
+    file = fopen("src/main.py","r");
+    system("src/main.py test");
+    
 
     QApplication myapp(argc, argv);
     MainWindow mainWin;
