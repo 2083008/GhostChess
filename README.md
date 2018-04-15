@@ -52,15 +52,28 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 ![Logo](Docs/20180326_152725.jpg)
 
 1. Cut and bevel the two 915mm/70mm Plywood sheets which form the base and top plate of the design
+![](Docs/20180326_102938.jpg =250x250)
+
 2. Bolt down the 2 700mm length T-slot bars through the base plywood sheet (4 bolts spaced evenly)
+![](Docs/20180326_133212.jpg =250x250)
+
 3. Cut the 3 125mm/35mm oak shuttles and the 500mm/35mm oak cross bar
 4. Mount the oak cross bar to two of the oak shuttles using miter-fast bond and screws
+![](Docs/20180326_135516.jpg =250x250)
+
 5. Bolt the 500mm T-slot bar to the oak cross bar (4 bolts spaced evenly)
+1[](Docs/20180326_152722.jpg =250x250)
+
 6. Cut oak blocks to stand the pulleys and motors (x6, 3 for motors and 3 for pulleys), plane to match heights (the bottom of the pulleys should be at the same height as the top of the oak shuttles to ensure that the timing belt can be fixed securely)
 7. Fix the oak blocks to the plywood base using miter fast bond and screws
+![](Docs/20180327_145121.jpg =250x250)
+
 8. fix the flaged corner brackets to the oak blocks, ensuring they are parallel to the T-slot bar and in line
 9. attach the motors to the flanged corner brackets by drilling holes in the corner bracket and bolting the motors through them
 10. attach pulleys to motor shafts, 500mm metal shaft, and 30mm metal shaft
+![](Docs/20180327_125229.jpg =250x250)
+![](Docs/20180328_183312.jpg =250x250)
+
 11. attach timing belt to oak shuttles through pulleys with tension using miter fast bond
 
 # Electromagnet
