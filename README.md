@@ -49,10 +49,10 @@ All measurements in mm.
 
 A Plywood base is used to ensure that there is no unwanted lateral motion under tension. T-slot bars act as runners for oak shuttles, held in place by T-bolts. The Y plane movement is supported by two T-slot bars, each 700mm in length. Mounted to both the Oak shuttles on the Y plane is an oak bar which holds the 3rd, X plane, T-slot bar in place (500mm in length). Each shuttle is moved using a timing belt which is mounted through 2 pulleys to a stepper motor.
 
-![Logo](Docs/img/20180326_152725.jpg | width=50)
+![Logo](Docs/20180326_152725.jpg | width=50)
 
 1. Cut and bevel the two 915mm/70mm Plywood sheets which form the base and top plate of the design
-![Logo](Docs/img/20180326_102938.jpg)
+![Logo](Docs/img/20180326_102938.jpg | width=50)
 
 2. Bolt down the 2 700mm length T-slot bars through the base plywood sheet (4 bolts spaced evenly)
 ![Logo](Docs/20180326_133212.jpg =250x250)
