@@ -52,7 +52,7 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 ![Logo](Docs/20180326_152725.jpg)
 
 1. Cut and bevel the two 915mm/70mm Plywood sheets which form the base and top plate of the design
-![](Docs/20180326_102938.jpg | width=250)
+![](Docs/20180326_102938.jpg)
 
 2. Bolt down the 2 700mm length T-slot bars through the base plywood sheet (4 bolts spaced evenly)
 ![](Docs/20180326_133212.jpg =250x250)
