@@ -62,7 +62,7 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 <img src="Docs/img/20180326_135516.jpg" height="300" width="550">
 
 5. Bolt the 500mm T-slot bar to the oak cross bar (4 bolts spaced evenly)
-<img src="DDocs/img/20180326_152722.jpg" height="300" width="550">
+<img src="Docs/img/20180326_152722.jpg" height="300" width="550">
 
 6. Cut oak blocks to stand the pulleys and motors (x6, 3 for motors and 3 for pulleys), plane to match heights (the bottom of the pulleys should be at the same height as the top of the oak shuttles to ensure that the timing belt can be fixed securely)
 7. Fix the oak blocks to the plywood base using miter fast bond and screws
@@ -71,7 +71,6 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 8. fix the flaged corner brackets to the oak blocks, ensuring they are parallel to the T-slot bar and in line
 9. attach the motors to the flanged corner brackets by drilling holes in the corner bracket and bolting the motors through them
 10. attach pulleys to motor shafts, 500mm metal shaft, and 30mm metal shaft
-<img src="Docs/img/20180327_125229.jpg" height="600" width="300">
 <img src="Docs/img/20180328_183312.jpg" height="300" width="550">
 
 11. attach timing belt to oak shuttles through pulleys with tension using miter fast bond
