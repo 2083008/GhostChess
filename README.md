@@ -79,7 +79,7 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 
 # Electromagnet
 
-The electromagnet is controlled using a GPIO enable, connected to the gate of a transistor with 12V DC from the power supply connected to source and the drain connected to ground.
+The electromagnet is controlled using a GPIO on the RASPI, connected to the gate of a N-Channel FET (P36NF06L) with a R10k to GND. 12V DC from the power supply connected Electromagnet with the other connection to the Drain of the FET and the Source to GND.
 
 # Sensor matrix: detecting the users move
 
@@ -91,7 +91,7 @@ To build this project's software: first clone the repository then run
 cmake .
 make
 
-./main
+./GhostChess
 
 ```
 
