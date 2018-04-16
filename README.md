@@ -125,8 +125,9 @@ To assemble the sensor matrix, follow the steps outlined below. Apart from the c
 <img src="Docs/img/6.jpg" height="300" width="550">
 
 7. Solder multi-core wires to the two multiplexer/demultiplexers and superglue the sensor, so the SMD legs would not break from bending.
+<img src="Docs/img/7.jpg" height="300" width="550">
 
-Prior to connecting everything together, test the output of each hall-effect sensor using a magnet, by iteratively supplying voltage to each column and reading each row. Bear in mind that the sensing part of this project is still in alpha.
+Prior to connecting everything together, test the output of each hall-effect sensor using a magnet, by iteratively supplying voltage to each column and reading each row. The circuit for the matrix can be seen in Docs/PCB/sensor_array.pdf. Bear in mind that the sensing part of this project is still in alpha.
 
 
 
