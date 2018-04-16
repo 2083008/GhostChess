@@ -128,21 +128,15 @@ To move pieces accross the board the control software performs the following ste
 
 Responsiveness of the system. How long the system will take to move a piece.
 Latency permitted for the piece -> dependant on where the piece has to move (
-Sampling rate of 2Hz? for board state of 64 elements
-Bus Protocol? 
+Sampling rate of 2Hz for board state of 64 elements.
+Thread will poll the board every 2Hz and check for changes/validate and make sure user has moved a piece correctly then the engine will respond.
+Bus Protocol, communicating to motor drivers.
 Channels? 1
-Kernel or userspace + why
-data flow (formats, latencies, processing and conversions)
-Buffering and sample size
-  -> latency introduced from buffering?
-Postprocessing of data and how that introduces latencies / processor load?
-  -> Post processing of the data (sample rates sufficiently slow perhaps)
+Kernel space usage was not deemed necessary since the latencies were in the order of seconds/ms. For simpicity and faster development time then staying in user space was preferred.
+Data flow  is shown in the [software diagram](Docs/Software_flow_diagram.png) (formats, latencies, processing and conversions)
+Buffers for the move history of the game as well as the engines returned moves are stored.
  
-Threads/ load distributing ? ensure responsiveness
-
-QT GUI permitted refresh rate and latency introduced (may not be so much of an issue since our sample rates are slow)
-
-Structure software in classes, associated unit tests
+Threads operate for fetching the user input for the CLI as well. The board array will also be updated using a thread executed at 2Hz.
 
 ### Team Roles <a name="team_roles"></a>
 * Alex Angelov - 3D Pieces Modelling, Board Production, Position Sensing and Related Software
