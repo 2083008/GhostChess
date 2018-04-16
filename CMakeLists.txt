@@ -11,6 +11,6 @@ find_package(Qt5Widgets)
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -pthread -g") # c++11 compiler flag
 
-add_executable(main ${SOURCES})
+add_executable(GhostChess ${SOURCES})
 
-target_link_libraries(main Qt5::Widgets)
+target_link_libraries(GhostChess Qt5::Widgets)
