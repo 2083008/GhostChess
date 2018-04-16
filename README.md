@@ -156,5 +156,6 @@ How does the project acheive the goals that are set out above?
 
 # FAQ/Common Issues <a name="faq"></a>
 **Q:** QLabel: No such file or directory
-**A:** QT5 must be installed to build the software, run  '''sudo apt-get install qt-5 default '''
+
+**A:** QT5 must be installed to build the software, run  ```sudo apt-get install qt-5 default ```
 
