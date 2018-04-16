@@ -47,7 +47,7 @@ X-Y positioning:
 * 6x Flanged Corner Bracket BZP
 
 Sensor Matrix:
-* 72x Latching Hall-effect Sensors (SS361RT) and 72 10kohm resistors
+* 64x Latching Hall-effect Sensors (SS361RT) and 64 10kohm resistors
 * 2x 8-1 FET Mux/Demux (SN74CBT3251)
 
 Other:
@@ -94,6 +94,46 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 The electromagnet is controlled using a GPIO on the RASPI, connected to the gate of a N-Channel FET (P36NF06L) with a R10k to GND. 12V DC from the power supply connected Electromagnet with the other connection to the Drain of the FET and the Source to GND.
 
 # Sensor matrix: detecting the users move
+The sensor matrix is comprised of 64 latching (0/1 state will be preserved until reset) hall-effect (detecting magnetic field, turned on by a North magnetic pole and off by South magnetic pole) sensors, with one sensor below each square. The sensor (SS361RT) has three terminals - Supply voltage (V_cc), Output and Ground. The most basic circuit is created by connecting a resistor (10k recommended) between V_cc and Output - the transistor in the sensor would act like a short circuit when turned on (pulling the output to Ground), and as an open circuit when exposed to North magnetic pole (the resistor pulling the output to V_cc or 5V, when supplied from the RaspberryPi). More can be seen in the datasheet: https://sensing.honeywell.com/honeywell-sensing-latching-digital-hall-effect-sensor-ic-datasheet-ss361rt-ss461r-005901-3-en.pdf
+
+
+To assemble the sensor matrix, follow the steps outlined below. Apart from the components mentioned in the beginning, you will need:
+* Solder iron (possibly with a fine tip) and a large amount of solder;
+* Long multi and single-core wires;
+* Wire strippers;
+* Hot glue gun and sticks;
+* Cardboard and drawing instruments;
+* Duct tape.
+
+1. Copy the exact dimensions of the laser-cut acrylic board and draw lines through all square diagonals, so you find the exact center. Prepare your multi-core wire for the SMD hall-effect sensors:
+<img src="Docs/img/1.jpg" height="300" width="550">
+
+2. Solder the sensor terminals to wires and start supergluing them to the cardboard, making sure they are positioned exactly in the center:
+<img src="Docs/img/2.jpg" height="300" width="550">
+
+3. After you have glued all sensors, trim the wires so you have working space:
+<img src="Docs/img/3.jpg" height="300" width="550">
+
+4. Strip single-core wires, which will serve as "rails". Place them along each column line, starting from the side of the ground terminal. Solder the ground terminal sensor wires to the "ground net".
+<img src="Docs/img/4.jpg" height="300" width="550">
+
+
+5. Cover "ground net" with at least 2 layers of duct tape, then place 8 column wires (V_cc) in parallel with the ground wires. Cover the intersections with the rows with duct tape, and place 8 row wires (Output) along the row lines. 
+<img src="Docs/img/5.jpg" height="300" width="550">
+
+6. Solder the resistors and corresponding sensor wires between the supply and output wire nets:
+<img src="Docs/img/6.jpg" height="300" width="550">
+
+7. Solder multi-core wires to the two multiplexer/demultiplexers and superglue the sensor, so the SMD legs would not break from bending.
+
+Prior to connecting everything together, test the output of each hall-effect sensor using a magnet, by iteratively supplying voltage to each column and reading each row. Bear in mind that the sensing part of this project is still in alpha.
+
+
+
+The Bill of Materials for this project can be seen here: https://docs.google.com/spreadsheets/d/1Xdm7poSaMNww_U4s14YsQG5IgNS09zYjubY1kuaMT44/edit?usp=sharing
+
+
+
 
 # Building Software <a name="building_software"></a>
 ![GUU](Docs/GhostChessGUI.png)
