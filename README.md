@@ -6,24 +6,32 @@ This project aims to design and build a mechanised chess device, allowing users 
 
 ![Layers of the system](Docs/path7416.png)
 
-# why?
+# Why?
 Playing games on a computer screen can be great - but it takes away from the game. Ghost Chess allows users to detach from their everyday computer use to really invest in the game itself, providing a more engaging gaming experience. Variable difficulty levels allow users to improve their chess skills. Not to mention that it is really cool!
 
 ## Table of Contents
 [Getting Started](#getting_started)
   * [Required Hardware](#required_hardware)
+  * [Assembling the mechanical arm](#mechanical_arm)
   * [Building Software](#building_software)
-  * [System Specification](#system_specification)
+  * [Motor Control](#motor_control)
+  
+[System Specification](#system_specification)
+
+[Project Progress/Evaluation](#progress_evaluation)
+  * [Team Roles](#team_roles)
+
+[FAQ/Common Issues](#faq)
 
 # Getting Started <a name="getting_started"></a>
 All project-related software can be found in folder "src", and all required schematics/CAD files/PCB designs/footprints are located in folder "Docs".
-## Required Hardware and Parts <a name="required_hardware"></a>
-* The full Bill of Materials can be found on this link (still being updated): goo.gl/mntyCQ
+## Required Hardware <a name="required_hardware"></a>
+* The full [Bill of Materials](goo.gl/mntyCQ): 
 X-Y positioning:
 * 3x Stepper Motors (Nema 17)
 * 3x Stepper motor drivers (Pololu A4988)
 * 1x Electromagnet (3/4' Diameter, 4.5kg pull force) and 40x Button Magnets (3mm diameter, 2mm height)
-* transistor
+* P36NF06L FET
 * 2x 700/900 mm plywood sheets
 * 2x 700mm and 1x 500mm T-slot bar
 * 3x 125mm oak shuttles
@@ -42,7 +50,7 @@ Other:
 * Laser-cut Acrylic chess board and 3D printed pieces
 * Raspberry Pi 3 Model B
 
-# Assembling the mechanical arm:
+# Assembling the mechanical arm: <a name="mechanical_arm"></a>
 ![Logo](Docs/XYplaneDiag.png)
 
 All measurements in mm.
@@ -77,29 +85,34 @@ A Plywood base is used to ensure that there is no unwanted lateral motion under 
 <img src="Docs/img/20180410_103216.jpg" height="300" width="550">
 
 
-# Electromagnet
+### Electromagnet
 
 The electromagnet is controlled using a GPIO on the RASPI, connected to the gate of a N-Channel FET (P36NF06L) with a R10k to GND. 12V DC from the power supply connected Electromagnet with the other connection to the Drain of the FET and the Source to GND.
 
 # Sensor matrix: detecting the users move
 
-## Building Software <a name="building_software"></a>
+# Building Software <a name="building_software"></a>
 ![GUU](Docs/GhostChessGUI.png)
 To build this project's software: first clone the repository then run
 
 ```
+cd GhostChess
 cmake .
 make
 
 ./GhostChess
 
 ```
+**NB** Requires QT5, to install:
+```
+sudo apt-get install qt-5 default
+```
+Moves can be entered through the GUI or through the CLI (both entered in Algerbraic Chess Notation eg e2e4...).
+## Software Flow:
 
-# Software Flow:
+The software forms an interface between the user and the StockFish API, updating the API with new moves and reading out the computers moves to pass to the motor control software. A full software flow diagram can be found in [Docs/Software_flow_diagram](Docs/Software_flow_diagram.png).
 
-The software forms an interface between the user and the StockFish API, updating the API with new moves and reading out the computers moves to pass to the motor control software. A full software flow diagram can be found in Docs/Software_flow_diagram.png
-
-# Motor control:
+## Motor control: <a name="#motor_control"></a>
 
 Motor control is performed using digital GPIO outputs which control the Pololu A4988 stepper motor driver. The stepper motors are rotated in 4 stages which relates to 4 configurations of the H-bridge inductor which is used to turn the motor shaft. A single rotation therefore relates to:
 
@@ -111,7 +124,7 @@ To move pieces accross the board the control software performs the following ste
 5. Return piece to the centre of the square
 6. Return to origin of the board (located at square A1)
 
-## System Specification <a name="system_specification"></a>
+# System Specification <a name="system_specification"></a>
 
 Responsiveness of the system. How long the system will take to move a piece.
 Latency permitted for the piece -> dependant on where the piece has to move (
@@ -131,15 +144,17 @@ QT GUI permitted refresh rate and latency introduced (may not be so much of an i
 
 Structure software in classes, associated unit tests
 
-### Team Roles
+### Team Roles <a name="team_roles"></a>
 * Alex Angelov - 3D Pieces Modelling, Board Production, Position Sensing and Related Software
 * Tim Ness - Design Assembly, Accurate Motor Control and Related Software
 * Alex Smith - Chess Engine Integration and QT GUI Interface
 
-# Progress Success Evaluation
+# Progress Success Evaluation <a name="progress_evaluation"></a>
 Issue tracking and Project Tracking through github's associated tools.
 
 How does the project acheive the goals that are set out above?
 
-## FAQ/Common Issues
+# FAQ/Common Issues <a name="faq"></a>
+**Q:** QLabel: No such file or directory
+**A:** QT5 must be installed to build the software, run  '''sudo apt-get install qt-5 default '''
 
