@@ -1,6 +1,6 @@
 ![Logo](Docs/g10154.png)
 
-(Video Demo found at https://youtu.be/5MZTQNxuwCw)
+Check us out on [Youtube](https://youtu.be/5MZTQNxuwCw) and [HACKADAY](https://hackaday.com/2018/04/19/play-chess-against-a-ghost/)
 
 
 # team11_RTEP5: Mechanised User vs. Computer Chess Board
